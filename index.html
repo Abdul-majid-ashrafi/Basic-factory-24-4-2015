@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+    <script>
+        var app = angular.module("myMod",[])
+
+                .factory('data1',function (){
+                    return{
+                        name: "Factory one",age:"ninteen"}})
+
+                .factory('data2',function (){
+                    return{}})
+
+                .controller('ocnt1',function($scope,data1,data2){
+                    $scope.myFunc = function(){
+                      $scope.newVariable = data1.name;
+                        alert($scope.newVariable)
+
+                    }})
+                .controller('ocnt2',function($scope,data1,data2){
+                    $scope.myFunct = function(){
+                        $scope.newVariable = '';
+                        alert("factory 2")}})
+
+
+    </script>
+</head>
+<body ng-app="myMod">
+<div ng-controller="ocnt1">
+    <button ng-click="myFunc()">Click   1</button></div>
+
+<div ng-controller="ocnt2">
+    <button ng-click="myFunct()">Click   2</button>
+</div>
+</body>
+</html>
